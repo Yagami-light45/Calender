@@ -17,7 +17,7 @@ const MobileCalendar = () => {
   // Helper to get date string (YYYY-MM-DD)
   const getCurrentDateString = (date) => date.toISOString().split('T')[0];
 
-  // --- Sample Events Data ---
+  
   const today = new Date();
   const tomorrow = new Date(today);
   tomorrow.setDate(today.getDate() + 1);
@@ -32,9 +32,7 @@ const MobileCalendar = () => {
     { id: 5, title: 'Movie Night', time: '20:00', date: getCurrentDateString(dayAfter), priority: 'low' },
     { id: 6, title: 'Client Call', time: '10:00', date: getCurrentDateString(dayAfter), priority: 'high' },
   ]);
-  // --- End Sample Events Data ---
 
-  // --- Core Logic & Handlers ---
   const navigateMonth = (direction) => {
     setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + direction, 1));
   };
@@ -55,7 +53,6 @@ const MobileCalendar = () => {
     setEvents(prevEvents => prevEvents.filter(event => event.id !== eventId));
   };
 
-  // --- Helper Functions & Derived State ---
   const getEventsForDate = (date) => {
     const dateString = date.toISOString().split('T')[0];
     return events.filter(event => event.date === dateString);
